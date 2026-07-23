@@ -343,17 +343,40 @@
 
     @media (max-width: 520px) {
       .header-inner { min-height: 128px; }
-      .toolbar { align-items: stretch; }
+      .toolbar {
+        align-items: stretch;
+        min-width: 0;
+      }
+      .instructions {
+        width: 100%;
+        min-width: 0;
+      }
+      .progress {
+        display: block;
+        margin: 2px 0 0;
+        white-space: normal;
+      }
       .toolbar-actions {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: 100%;
+        min-width: 0;
       }
       .sort-control {
         grid-column: 1 / -1;
         justify-content: space-between;
+        min-width: 0;
       }
-      .sort-control select { flex: 1; }
-      .reset, .show-all { width: 100%; }
+      .sort-control select {
+        flex: 1;
+        width: 100%;
+        min-width: 0;
+      }
+      .reset, .show-all {
+        width: 100%;
+        min-width: 0;
+        padding-inline: 6px;
+      }
       .reveal-grid { grid-template-columns: 1fr; }
       .reveal-card { min-height: 108px; }
       .reveal-card.is-revealed { min-height: 310px; }
