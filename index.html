@@ -314,6 +314,26 @@
       font-weight: 500;
     }
 
+    .reveal-grid.showing-all .reveal-card.is-revealed {
+      min-height: 108px;
+    }
+
+    .reveal-grid.showing-all .card-inner {
+      transform: none !important;
+      transition: none;
+    }
+
+    .reveal-grid.showing-all .card-front,
+    .reveal-grid.showing-all .symbol-image {
+      display: none;
+    }
+
+    .reveal-grid.showing-all .card-back {
+      display: grid;
+      grid-template-rows: 1fr;
+      transform: none;
+    }
+
     footer {
       padding: 20px 0 30px;
       border-top: 1px solid var(--line);
@@ -478,6 +498,7 @@
     const sortCardsSelect = document.querySelector("#sort-cards");
     const cardGrid = document.querySelector(".reveal-grid");
     const progress = document.querySelector("#progress");
+    const compactScreen = window.matchMedia("(max-width: 520px)");
     const officialOrder = Array.from(cards);
     const colorTones = ["tone-sand", "tone-sage", "tone-blue", "tone-lavender"];
     const balancedShuffle = [0, 2, 1, 3, 1, 3, 0, 2, 3, 1, 2, 0, 2, 0, 3, 1];
@@ -678,6 +699,15 @@
 
     cards.forEach((card) => {
       card.addEventListener("click", () => {
+        if (cardGrid.classList.contains("showing-all")) {
+          cardGrid.classList.remove("showing-all");
+          cards.forEach((otherCard) => setCard(otherCard, false));
+          chooseFlipStyle(card);
+          setCard(card, true);
+          updateProgress();
+          return;
+        }
+
         const revealing = !card.classList.contains("is-revealed");
         if (revealing) chooseFlipStyle(card);
         setCard(card, revealing);
@@ -686,12 +716,14 @@
     });
 
     resetButton.addEventListener("click", () => {
+      cardGrid.classList.remove("showing-all");
       cards.forEach((card) => setCard(card, false));
       updateProgress();
       cardGrid.querySelector(".reveal-card").focus();
     });
 
     showAllButton.addEventListener("click", () => {
+      cardGrid.classList.toggle("showing-all", compactScreen.matches);
       cards.forEach((card) => {
         card.classList.remove("flip-spin", "flip-vertical");
         setCard(card, true);
