@@ -191,6 +191,7 @@
       text-align: left;
       cursor: pointer;
       perspective: 900px;
+      transition: min-height 320ms ease, transform 160ms ease;
     }
 
     .reveal-card:hover,
@@ -354,11 +355,13 @@
       .sort-control select { flex: 1; }
       .reset, .show-all { width: 100%; }
       .reveal-grid { grid-template-columns: 1fr; }
-      .reveal-card { min-height: 250px; }
+      .reveal-card { min-height: 108px; }
+      .reveal-card.is-revealed { min-height: 310px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
+      .reveal-card,
       .card-inner { transition: none; }
     }
   </style>
