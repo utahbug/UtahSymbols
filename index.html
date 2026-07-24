@@ -4,8 +4,25 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#23322c">
-  <meta name="description" content="Test your knowledge of Utah's official state symbols with simple tap-to-reveal cards.">
+  <meta name="description" content="Guess and discover Utah's 40 official state symbols and designations.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Utah Symbols">
+  <meta property="og:title" content="Utah Symbols">
+  <meta property="og:description" content="Guess, flip, and discover Utah's 40 official state symbols and designations.">
+  <meta property="og:url" content="https://utahbug.github.io/UtahSymbols/">
+  <meta property="og:image" content="https://utahbug.github.io/UtahSymbols/assets/utah-symbols-social-card.jpg">
+  <meta property="og:image:secure_url" content="https://utahbug.github.io/UtahSymbols/assets/utah-symbols-social-card.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Utah Symbols quiz featuring a Rocky Mountain elk, California gull, Allosaurus, Utah mountains, and red-rock desert.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Utah Symbols">
+  <meta name="twitter:description" content="Guess, flip, and discover Utah's 40 official state symbols and designations.">
+  <meta name="twitter:image" content="https://utahbug.github.io/UtahSymbols/assets/utah-symbols-social-card.jpg">
+  <meta name="twitter:image:alt" content="Utah Symbols quiz featuring a Rocky Mountain elk, California gull, Allosaurus, Utah mountains, and red-rock desert.">
   <title>Utah State Symbols</title>
+  <link rel="canonical" href="https://utahbug.github.io/UtahSymbols/">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
   <style>
@@ -315,7 +332,7 @@
     }
 
     .reveal-grid.showing-all .reveal-card.is-revealed {
-      min-height: 108px;
+      min-height: 210px;
     }
 
     .reveal-grid.showing-all .card-inner {
@@ -323,14 +340,13 @@
       transition: none;
     }
 
-    .reveal-grid.showing-all .card-front,
-    .reveal-grid.showing-all .symbol-image {
+    .reveal-grid.showing-all .card-front {
       display: none;
     }
 
     .reveal-grid.showing-all .card-back {
       display: grid;
-      grid-template-rows: 1fr;
+      grid-template-rows: minmax(0, 1fr) auto;
       transform: none;
     }
 
